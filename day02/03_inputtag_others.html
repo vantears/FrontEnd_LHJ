@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Tag Attribute Example</title>
+</head>
+<body>
+    <!--
+        Attributes
+            readonly : read only, not modificable, sent to server
+            disabled : read only, not modificable, not sent to server
+            checked : checked as default
+            required : add to the required list(done by validation plug-in)
+            tabindex : set an order when tabbed
+    -->
+    <form action="">
+        <input type="text" name="a" id="" readonly value="read-only"> <br>
+        <input type="text" name="b" id="" disabled value="not available"> <br>
+        <input type="checkbox" name="c" id="" value="checkbox" checked> <br>
+        <input type="text" name="d" id="" required tabindex="2">
+        <input type="submit" value="send">
+    </form>
+</body>
+</html>
