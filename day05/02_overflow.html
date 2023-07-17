@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overflow 예제</title>
+    <style>
+        .box{
+            width: 300px; height: 100px; border: 1px solid black;
+        }
+        .inner-box{
+            width: 500px; height: 50px; background-color: red;
+        }
+        .box1{
+            overflow: visible;
+        }
+        .box2{
+            overflow: hidden;
+        }
+        .box3{
+            overflow: scroll;
+        }
+        .box4{
+            overflow: auto;
+        }
+        .box3 .inner-box{
+            height: 500px; width: 200px;
+        }
+        .box4 .inner-box{
+            height:  500px; width: 200px;
+        }
+        .box3::-webkit-scrollbar,
+        .box4::-webkit-scrollbar{
+            display: none;
+        }
+        .box3,
+        .box4{
+            -ms-overflow-style: none;
+
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box box1">
+        <div class="inner-box">1</div>
+    </div>
+    <div class="box box2">
+        <div class="inner-box">2</div>
+    </div>
+    <div class="box box3">
+        <div class="inner-box">3</div>
+    </div>
+    <div class="box box4">
+        <div class="inner-box">4</div>
+    </div>
+</body>
+</html>
