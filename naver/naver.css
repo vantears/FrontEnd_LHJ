@@ -1,0 +1,968 @@
+*{ padding: 0; margin: 0; color: #101010;}
+        a{ text-decoration: none;}
+
+        body{
+            min-width: 1340px;
+        }
+
+        /* 헤더 영역 */
+        header{
+            width: 1280px; 
+            margin: 0 auto;
+            position: relative;
+            padding: 64px 0 42px;
+            height: 155px;
+        }
+        #ham_menu{
+            position: absolute; top: 18px; left: -10px;
+        }
+        #ham_menu .btn-ham{
+            padding: 10px;
+            cursor: pointer;
+            background-color: transparent; border: none; outline: 0;
+        }
+        #ham_menu .btn-ham::after{
+            content: ''; display: block; background-image: url(../img/naver_icon.png);
+            background-size: 422px 405px;
+            background-position: -335px -284px;
+            width: 26px; height: 26px;
+            position: relative;
+        }
+        #ham_menu .btn-ham:hover::before{
+            content: ''; display: block; position: absolute;
+            top: 1px; left: 1px;
+            width: 44px; height: 44px;
+            background-color: #f5f7f8;
+            border-radius: 50%;
+        }
+        #box_search{
+            width: 706px; position: absolute;
+            left: 50%; transform: translate(-50%);
+            border: 1px solid #03c75a;
+            border-radius: 33px; top: 64px;
+        }
+        #box_search:hover{
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,.12);
+        }
+        #box_search .box-logo{
+            float: left; width: 80px;
+        }
+        #box_search .box-logo .link-logo{
+            position: relative; display: block;
+            margin-right: 12px;
+            padding: 17px 17px 17px 27px;
+        }
+        .ico_n_logo_svg{
+            width: 24px; height: 24px; display: block;
+        }
+        #box_search .ico_n_logo_svg>svg{
+            fill: #03c75a;
+        }
+        #box_search .box-search-input{
+            float: right; width: 623px;
+        }
+        #box_search .box-search-input .input-search{
+            padding: 17px 0; width: 480px; float: left;
+            height: 58px; border: 0; outline: 0;
+            box-sizing: border-box;
+            line-height: 24px;
+            position: relative;
+            font-weight: bold; font-size: 23px; color: #000;
+        }
+        #box_search .box-search-input .input-search::placeholder{
+            color: #e3e5e8;
+            font-size: 20px;
+            font-weight: 350;
+        }
+        #box_search .box-search-input .btn-search{
+            padding: 17px 27px 16px 10px; cursor: pointer;
+            position: absolute; top: 0; right: 0;
+            border: 0; outline: 0; background-color: transparent;
+        }
+        #box_search .box-search-input .btn-search .icon-search{
+           display: block;
+        }
+        #box_search .box-search-input .btn-search .icon-search::before{
+            background-image: url(../img/naver_icon.png);
+            background-size: 422px 405px;
+            background-position: -364px -132px;
+            width: 25px; height: 25px;
+            content: ''; display: block;
+        }
+        #box_search .box-btns{
+            position: absolute; top: 0; right: 61px; bottom: 0;
+            width: 56px;
+        }
+        #box_search .box-btns .btn-kbd{
+            padding: 21px 3px; cursor: pointer;
+            border: 0; outline: 0; background-color: transparent;
+        }
+        #box_search .box-btns .btn-kbd::before{
+            background-image: url(../img/naver_icon.png);
+            background-size: 422px 405px;
+            background-position: -50px -270px;
+            width: 24px; height: 16px;
+            content: ''; display: block;
+        }
+        #box_search .box-btns .btn-kbd:hover::before{
+            background-position: -270px -234px;
+        }
+        #box_search .box-btns .btn-autocomplete{
+            padding: 26px 6px; cursor: pointer; position: absolute; 
+            right: 1px; top: 0;
+            border: 0; outline: 0; background-color: transparent;
+        }
+        #box_search .box-btns .btn-autocomplete::before{
+            background-image: url(../img/naver_icon.png);
+            background-size: 422px 405px;
+            background-position: -412px -352px;
+            width: 10px; height: 6px;
+            content: ''; display: block;
+        }
+        .shortcut-area{
+            position: relative;
+            width: 676px;
+            margin: 72px auto 0;
+        }
+        .shortcut-area .shortcut-list .shortcut-item{
+            float: left;
+        }
+        .shortcut-list .shortcut-item+.shortcut-item{
+            margin-left: 4px;
+        }
+        .shortcut-list .link-service{
+            position: relative;
+            display: block;
+            width: 64px;
+            text-decoration: none;
+        }
+        .shortcut-list .service-icon{
+            width: 48px; height: 48px; position: relative;
+            display: block; margin: 0 auto;
+        }
+        .shortcut-list .service-icon::before{
+            content: ''; display: block; position: absolute;
+            top: -2px; left: -3px;
+            background-image: url(../img/naver_icon.png);
+            background-size: 422px 405px;
+            background-position: 0px -128px;
+            width: 54px; height: 54px;
+        }
+        .shortcut-list .service-icon:hover::before{
+            filter: drop-shadow(1px 4px 1px rgb(236, 236, 236));
+        }
+        .shortcut-list .service-icon::after{
+            content: ''; display: block; position: absolute;
+            top: 0; bottom: 0; left: 0; right: 0;
+            margin: auto;
+        }
+        .shortcut-list .service-icon.type-mail::after{
+            background-image: url(../img/naver_icon.png);
+            background-size: 422px 405px;
+            background-position: -250px -90px;
+            width: 44px; height: 44px;
+        }
+        .shortcut-list .service-icon.type-cafe::after{
+            background-image: url(../img/naver_icon.png);
+            background-size: 422px 405px;
+            background-position: -250px -0px;
+            width: 44px; height: 44px;
+        }
+        .shortcut-list .service-icon.type-blog::after{
+            background-image: url(../img/naver_icon.png);
+            background-size: 422px 405px;
+            background-position: -201px -98px;
+            width: 44px; height: 44px;
+        }
+        .shortcut-list .service-icon.type-shop::after{
+            background-image: url(../img/naver_icon.png);
+            background-size: 422px 405px;
+            background-position: -90px -209px;
+            width: 44px; height: 44px;
+        }
+        .shortcut-list .service-icon.type-news::after{
+            background-image: url(../img/naver_icon.png);
+            background-size: 422px 405px;
+            background-position: 0px -209px;
+            width: 44px; height: 44px;
+        }
+        .shortcut-list .service-icon.type-stock::after{
+            background-image: url(../img/naver_icon.png);
+            background-size: 422px 405px;
+            background-position: -180px -209px;
+            width: 44px; height: 44px;
+        }
+        .shortcut-list .service-icon.type-realestate::after{
+            background-image: url(../img/naver_icon.png);
+            background-size: 422px 405px;
+            background-position: -45px -209px;
+            width: 44px; height: 44px;
+        }
+        .shortcut-list .service-icon.type-map::after{
+            background-image: url(../img/naver_icon.png);
+            background-size: 422px 405px;
+            background-position: -201px 0px;
+            width: 48px; height: 48px;
+        }
+        .shortcut-list .service-icon.type-webtoon::after{
+            background-image: url(../img/naver_icon.png);
+            background-size: 422px 405px;
+            background-position: -225px -209px;
+            width: 44px; height: 44px;
+        }
+        .shortcut-list .service-icon.type-more::after{
+            background-image: url(../img/naver_icon.png);
+            background-size: 422px 405px;
+            background-position: -250px -135px;
+            width: 44px; height: 44px;
+        }
+        .shortcut-list .service-name{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: block;
+            font-size: 14px;
+            margin-top: 7px; line-height: 20px; text-align: center;
+        }
+        .pay-area{
+            position: absolute;
+            top: 18px;
+            right: 42px;
+        }
+        .pay-area .link-pay{
+            position: relative;
+            display: block;
+            padding: 10px 8px;
+        }
+        .notify-area{
+            position: absolute;
+            top: 18px;
+            right: -10px;
+            width: 46px;
+        }
+        .notify-area .btn-notify{
+            overflow: visible;
+            position: relative;
+            padding: 10px;
+            cursor: pointer;
+            background-color: transparent;
+            border: 0;
+        }
+        .pay-area .link-pay:hover::before{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            width: 44px;
+            height: 44px;
+            background-color: #f5f7f8;
+            border-radius: 50%;
+        }
+        .notify-area .btn-notify:hover::before{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            width: 44px;
+            height: 44px;
+            background-color: #f5f7f8;
+            border-radius: 50%;
+        }
+        .pay-area .link-pay::after{
+            content: '';
+            display: block;
+            background-image: url(../img/naver_icon.png);
+            background-size: 422px 405px;
+            background-position: -31px -316px;
+            width: 30px; height: 26px;
+            position: relative;
+        }
+        .notify-area .btn-notify::after{
+            content: '';
+            display: block;
+            background-image: url(../img/naver_icon.png);
+            background-size: 422px 405px;
+            background-position: -364px -27px;
+            width: 26px; height: 26px;
+            position: relative;
+        }
+        /* 컨텐츠 영역 */
+        #container{
+            position: relative;
+            width: 1280px;
+            margin: 0 auto;
+            padding-bottom: 60px;
+        }
+        #container::after{
+            content: ''; display: table;
+            table-layout: fixed; clear: both;
+        }
+        #container .box-left{
+            float: left; width: 830px;
+        }
+        #container .box-left .box-banner{
+            height: 130px;
+            box-shadow: 0 0 0 1px #e3e5e8, 0 1px 2px 0 rgba(0,0,0,.04);
+            border-radius: 8px;
+        }
+        #container .box-right{
+            float: right; width: 420px;
+            height: 500px;
+        }
+        #container .box-right .box-login{
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 0 0 1px #e3e5e8, 0 1px 2px 0 rgba(0,0,0,.04);
+            box-sizing: border-box;
+            padding: 21px 20px 18px;
+            line-height: 20px; text-align: center;
+        }
+        #container .box-right .box-login .text-login{
+            font-size: 14px;
+        }
+        #container .box-right .box-login .link-login{
+            display: block;
+            margin-top: 13px; padding: 17px 0;
+            border: 1px solid rgba(0,0,0,.06);
+            border-radius: 4px;
+            background-color: #03c75a;
+            box-shadow: 0 2px 4px 0 rgba(3,199,90,.12);
+            text-decoration: none;
+            color: #fff;
+        }
+        #container .box-right .box-login .link-login:hover{
+            background-color: #17b75e;
+            box-shadow: 0 2px 4px 0 rgba(3,199,90,.24);
+        }
+        #container .box-right .box-login .link-login .naver-logo{
+            background-image: url(../img/naver_icon.png);
+            background-size: 422px 405px;
+            background-position: -120px -166px;
+            width: 72px; height: 14px; display: inline-block;
+            margin: 3px 8px 0 0; vertical-align: top;
+        }
+        #container .box-right .box-login .login-more{
+            margin-top: 16px; font-size: 13px;
+        }
+        .link-more{
+            display: inline-block;
+            color: #606060;
+        }
+        .link-more2{
+            display: inline-block;
+            color: #606060;
+        }
+        .link-more2::before{
+            content: ''; display: inline-block;
+            background-color: #d3d5d7;
+            width: 1px; height: 12px; margin: 4px 12px 0;
+            vertical-align: top;
+        }
+        .link-more:hover{
+            text-decoration: underline;
+        }
+        .link-more2:hover{
+            text-decoration: underline;
+        }
+        .content-area{
+            margin-top: 16px;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 0 0 1px #e3e5e8, 0 1px 2px 0 rgba(0,0,0,.04);
+            box-sizing: border-box;
+        }
+        .content-area .content-header{
+            display: flex;
+            padding: 18px 20px 17px;
+        }
+        .content-area .content-header .head-tab{
+            -webkit-box-flex: 1;
+            flex: 1;
+        }
+        .head-tab .tab-list{
+            display: flex;
+        }
+        .tab-item{
+            position: relative;
+        }
+        .tab-item+.tab-item{
+            padding-left: 26px;
+        }
+        .tab-item+.tab-item::before{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 4px;
+            left: 13px;
+            width: 1px; height: 15px;
+            background-color: #d3d5d7;
+            transform: skewX(-15deg);
+        }
+        .module-tab{
+            position: relative;
+            display: inline-block;
+            font-size: 16.8px;
+            line-height: 23px;
+            font-weight: 800;
+            vertical-align: top;
+            color: rgba(8, 8, 8, .5);
+            -webkit-font-smoothing: antialiased;
+        }
+        .module-tab:first-child .tab-text:first-child{
+            color: #080808;
+        }
+        .tab-text{
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            color: rgba(8, 8, 8, .5);
+        }
+        .tab-text+.tab-text::before{
+            content: '';
+            display: inline-block;
+            width: 4px; height: 4px;
+            background-color: #d3d5d7;
+            margin: 9px 7px 0;
+            border-radius: 50%;
+            vertical-align: top;
+        }
+        .content-header-sub{
+            background-color: #f5f7f8;
+            position: relative;
+            display: flex;
+            margin: 0 20px;
+            padding: 12px 20px;
+            border-radius: 4px;
+            line-height: 26px;
+        }
+        .content-header-sub .btn-more{
+            font-size: 14.7px;
+            color: #404040;
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            cursor: pointer;
+        }
+        .ico-triangle{
+            background-image: url(../img/naver_icon.png);
+            background-size: 422px 405px;
+            background-position: -412px -366px;
+            background-repeat: no-repeat;
+            width: 9px;
+            height: 6px;
+            display: inline-block;
+            margin: 10px 0 0 5px;
+            vertical-align: top;
+        }
+        .content-header-sub .sub-news{
+            padding-left: 25px;
+            overflow: hidden;
+            position: relative;
+            -webkit-box-flex: 1;
+            flex: 1;
+            height: 26px;
+        }
+        .content-header-sub .sub-news::before{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 7px;
+            left: 12px;
+            background-color: #d3d5d7;
+            width: 1px;
+            height: 12px;
+        }
+        .sub-news .news-media{
+            font-size: 14.7px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .content-header-sub .sub-home{
+            margin-left: auto;
+        }
+        .content-header-sub .link-home.sub{
+            font-weight: 500;
+        }
+        .content-header-sub .link-home{
+            position: relative;
+            display: inline-block;
+            font-weight: bold;
+            vertical-align: top;
+            font-size: 14.6px;
+        }
+        .content-header-sub .link-home+.link-home{
+            padding-left: 25px;
+        }
+        .content-header-sub .link-home+.link-home::before{
+            content: ''; display: block;
+            position: absolute;
+            top: 7px; left: 12px; width: 1px; height: 12px;
+            background-color: #d3d5d7;
+        }
+        .media-area{
+            position: relative;
+            display: flex;
+            margin: 18px 20px 18px 20px;
+        }
+        .media-area .media-subscription{
+            -webkit-box-flex: 1;
+            flex: 1;
+        }
+        .media-subscription .subscription-frame{
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+        }
+        .subscription-frame .line{
+            background-color: #ebebeb;
+            z-index: 1;
+            position: absolute;
+        }
+
+        .subscription-frame i[class*=right]{
+            left: 0;
+            right: 0;
+            height: 1px;
+        }
+        .subscription-frame .right1{
+            top: 56px;
+        }
+        .subscription-frame .right2{
+            top: 113px;
+        }
+        .subscription-frame .right3{
+            top: 169px;
+        }
+        .subscription-frame i[class*=bottom]{
+            top: 0;
+            bottom: 0;
+            width: 1px;
+        }
+        .subscription-frame .bottom1{
+            left: 132px;
+        }
+        .subscription-frame .bottom2{
+            left: 263px;
+        }
+        .subscription-frame .bottom3{
+            left: 395px;
+        }
+        .subscription-frame .bottom4{
+            left: 526px;
+        }
+        .subscription-frame .bottom5{
+            left: 657px;
+        }
+        .media-subscription .subscription-group{
+            border: 1px solid #ebebeb;
+            overflow: hidden;
+            position: relative;
+            -webkit-box-flex: 1;
+            flex: 1;
+            height: 222px;
+            border-radius: 4px;
+        }
+        .subscription-group .subscription-box{
+            position: relative;
+            float: left;
+            width: 16.66%;
+            height: 56px;
+        }
+        .subscription-box .news-thumb{
+            display: block;
+            padding: 18px 0;
+            text-align: center;
+        }
+        .news-logo{
+            vertical-align: top;
+            border: 0;
+            height: 20px;
+            overflow-clip-margin: content-box;
+            overflow: clip;
+        }
+        .content-paging{
+            border-top: 1px solid #ebebeb;
+            position: relative;
+            padding: 10px 0 11px;
+            line-height: 34px;
+            text-align: center;
+        }
+        .content-paging .content-view{
+            position: absolute;
+            top: 0; right: 0; bottom: 0;
+        }
+        .content-view button[class*=btn-view]{
+            position: relative;
+        }
+        .content-view button[class*=btn-view]::before{
+            content: ''; display: block;
+        }
+        .content-view .btn-view-list{
+            padding: 18px 9px 18px 20px;
+        }
+        .content-view .btn-view-thumb{
+            padding: 18px 20px 18px 9px;
+        }
+        .content-view .btn-view-list::before{
+            background-image: url(../img/naver_icon.png);
+            background-size: 422px 405px;
+            background-position: -107px -368px;
+            background-repeat: no-repeat;
+            width: 20px;
+            height: 20px;
+        }
+        .content-view .btn-view-list:hover::before{
+            background-position: -191px -368px;
+        }
+        .content-view .btn-view-thumb::before{
+            background-image: url(../img/naver_icon.png);
+            background-size: 422px 405px;
+            background-position: -296px -368px;
+            background-repeat: no-repeat;
+            width: 20px;
+            height: 20px;
+        }
+        .content-view .btn-view-thumb:hover::before{
+            background-position: -391px 0px;
+        }
+        .content-paging .btn-prev{
+            width: 36px; height: 36px;
+            border: 1px solid #dadcdf;
+            position: relative;
+            display: inline-block;
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,.06);
+            border-radius: 50%;
+            vertical-align: top;
+            cursor: pointer;
+        }
+        .content-paging .btn-prev::before{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url(../img/naver_icon.png);
+            background-size: 422px 405px;
+            background-position: -412px -39px;
+            width: 10px;
+            height: 12px;
+            margin: auto;
+            transform: rotate(180deg);
+        }
+        .content-paging .content-page{
+            color: #606060;
+            display: inline-block;
+            min-width: 156px;
+            padding: 0 16px;
+            box-sizing: border-box;
+            font-size: 13px;
+            line-height: 35px;
+            font-weight: 600;
+            vertical-align: top;
+        }
+        .content-page .module-text{
+            padding-right: 4px;
+        }
+        .content-page .module-text .module-point{
+            color: #3a67ea;
+        }
+        .content-page .module-total{
+            color: rgba(96,96,96,.5);
+        }
+        .content-paging .btn-next{
+            width: 36px; height: 36px;
+            border: 1px solid #dadcdf;
+            background-color: #fff;
+            position: relative;
+            display: inline-block;
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,.06);
+            border-radius: 50%;
+            vertical-align: top;
+            cursor: pointer;
+        }
+        .content-paging .btn-next::before{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url(../img/naver_icon.png);
+            background-size: 422px 405px;
+            background-position: -412px -39px;
+            width: 10px;
+            height: 12px;
+            margin: auto;
+        }
+        .content-area::after{
+            content: ''; display: table; table-layout: fixed; clear: both;
+        }
+        .content-header{
+            display: flex; padding: 18px 20px 17px;
+        }
+        .content-header.type-shopping{
+            position: absolute;
+            top: 0; right: 0; z-index: 10;
+        }
+        .container{
+            width: 830px;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 0 0 1px #e3e5e8, 0 1px 2px 0 rgba(0,0,0,.04);
+            box-sizing: border-box;
+            opacity: 1;
+        }
+        .container .menu-content-header{
+            display: flex; padding: 19px 20px 16px;
+        }
+        .menu-header-tab{
+            flex: 1 1;
+        }
+        .menu-tab-list{
+            display: flex;
+        }
+        .menu-tab-item{
+            position: relative;
+        }
+        .menu-content-header .menu-tab{
+            position: relative;
+            display: inline-block;
+            font-size: 16.8px; line-height: 23px; font-weight: 800;
+            vertical-align: top; -webkit-font-smoothing: antialiased;
+            cursor: pointer;
+            color: rgba(8,8,8,.5);
+        }
+        .menu-tab-item:first-child .menu-tab{
+            color: #080808;
+        }
+        .menu-content-header .menu-tab-item+.menu-tab-item{
+            padding-left: 26px;
+        }
+        .menu-content-header .menu-tab-item+.menu-tab-item::before{
+            content: ''; display: block; position: absolute;
+            top: 4px; left: 13px; width: 1px; height: 15px;
+            background-color: #d3d5d7;
+            transform: skewX(-15deg);
+        }
+        .todaypick-header-sub-wrap{
+            display: flex;
+            margin: 0 20px;
+        }
+        .todaypick-header-sub{
+            background-color: #f5f7f8;
+            display: flex;
+            width: 668px; padding: 15px 20px 14px;
+            border-radius: 4px; box-sizing: border-box;
+            line-height: 21px; font-weight: 700;
+        }
+        .todaypick-title{
+            flex: none; position: relative;
+            padding-right: 19px; font-weight: 700;
+            font-size: 14.7px;
+        }
+        .todaypick-title::after{
+            content: ''; display: block;
+            position: absolute; top: 8px; right: 8px; 
+            width: 3px; height: 3px;
+            background-color: #d3d5d7; border-radius: 50%;
+        }
+        .todaypick-link-mall{
+            flex: 1 1; display: flex; min-width: 0;
+        }
+        .todaypick-mall-image{
+            display: inline-block; height: 13px;
+            padding-top: 4px; line-height: 13px;
+            vertical-align: top;
+        }
+        .todaypick-desc{
+            font-size: 14.7px;
+            margin-left: 8px;
+            overflow: hidden; text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #404040; font-weight: 500;
+        }
+        .todaypick-type-color{
+            color: #9858f5; font-style: normal;
+        }
+        .todaypick-header-sub-pagination{
+            margin-left: auto; padding: 10px 0;
+        }
+        .todaypick-content-page{
+            color: #606060;
+            display: inline-block;
+            margin: 6px 9px 8px 0;
+            font-size: 13px;
+            line-height: 16px;
+            font-weight: 600;
+            vertical-align: top;
+        }
+        .todaypick-total{
+            color: rgba(113,113,113,.6);
+        }
+        .todaypick-btn-prev{
+            border-radius: 4px 0 0 4px;
+        }
+        .todaypick-header-sub-pagination .todaypick-btn-next, .todaypick-header-sub-pagination .todaypick-btn-prev{
+            width: 30px; height: 30px;
+            position: relative; display: inline-block;
+            border: 1px solid rgba(211,213,215,.8);
+            vertical-align: top;
+            cursor: pointer;
+        }
+        .todaypick-ico-arrow-prev{
+            display: inline-block;
+            width: 10px; height: 12px;
+        }
+        .todaypick-ico-arrow-prev::before{
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 5px; height: 5px;
+            transform: translate(-50%, -50%) rotate(45deg);
+            border-left: 2px solid #80868c;
+            border-bottom: 2px solid #80868c;
+            margin-left: 1px;
+        }
+        .todaypick-header-sub-pagination i[class*=ico-arrow]{
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0; margin: auto;
+        }
+        .todaypick-header-sub-pagination .todaypick-btn-next{
+            border-left: 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .todaypick-header-sub-pagination .todaypick-ico-arrow-next{
+            display: inline-block;
+            width: 10px; height: 12px;
+        }
+        .todaypick-header-sub-pagination .todaypick-ico-arrow-next::before{
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%; width: 5px; height: 5px;
+            transform: translate(-50%, -50%) rotate(45deg);
+            border-top: 2px solid #80868c;
+            border-right: 2px solid #80868c;
+            margin-left: -1px;
+        }
+        .commerce-area{
+            display: flex;
+            height: 394px;
+            padding: 18px 20px 1px; box-sizing: border-box;
+        }
+        .commerce-four{
+            position: relative;
+            width: 520px;
+            margin-right: 20px;
+        }
+        .four-item:nth-child(4n+1){
+            padding-left: 0;
+        }
+        .four-item:nth-child(n+5){
+            padding-bottom: 24px;
+        }
+        .four-item{
+            float: left;
+            padding: 0 0 20px 20px;
+        }
+        .four-area{
+            position: relative;
+            width: 115px;
+        }
+        .four-mw{
+            position: relative;
+        }
+        .link-four{
+            position: relative; display: block;
+        }
+        .content-image{
+            overflow: hidden; position: relative;
+            display: block; border-radius: 4px;
+        }
+        .content-image::after{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border: 1px solid rgba(0,0,0,.06);
+            border-radius: inherit;
+            background-color: rgba(0,0,0,.03);
+            transform: translateZ(0);
+            perspective: 1px;
+        }
+        .four-box span[class*=content-image] img{
+            transition: transform .2s cubic-bezier(.165,.84,.44,1);
+            image-rendering: -webkit-optimize-contrast;
+        }
+        .four-box:hover span[class*=content-image] img{
+            transition-duration: .3s;
+            transform: scale(1.05);
+        }
+        .four-tw{
+            display: block;
+            padding-top: 10px;
+        }
+        .four-tt{
+            overflow: hidden;
+            line-height: 20px;
+            letter-spacing: -.8px;
+            white-space: nowrap;
+            font-size: 14px; font-weight: 500;
+        }
+        .commerce-view{
+            flex: 1 1;
+            min-width: 0;
+        }
+        .module-point2{
+            color: #9858f5;
+        }
+        .tag-ad{
+            position: absolute;
+            top: 18px; right: 20px;
+            border: 1px solid #e3e5e8;
+            color: #606060;
+            width: 30px;
+            border-radius: 4px; font-size: 12px;
+            line-height: 18px; text-align: center;
+        }
+        .container::after{
+            content: ''; display: table; table-layout: fixed;
+            clear: both;
+        }
+
+        /* 푸터 영역 */
+        footer{
+            min-width: 1280px;
+            background-color: #f5f6f7;
+            border-top: 1px solid #ebebeb;
+            /* 나중에 삭제할 속성 */
+            height: 300px;
+        }
+
+        /* 공통 */
+        ul, ol{
+            list-style: none;
+        }
+        li{
+            display: list-item;
+            text-align: -webkit-match-parent;
+        }
+        fieldset{
+            border: 0;
+        }
+        .blind{
+            position: absolute; width: 1px; height: 1px; margin: -1px;
+            overflow: hidden;
+        }
+        .clearfix::after{
+            content: ''; clear: both; display: block;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        button{
+            background-color: rgba(0,0,0,0);
+            cursor: pointer;
+            line-height: 0; font-size: 0;
+        }
+        input, button{
+            border-radius: 0;
+            border: 0;
+        }

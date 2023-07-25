@@ -4,327 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Naver</title>
-    <style>
-        *{ padding: 0; margin: 0; color: #101010;}
-        a{ text-decoration: none;}
-
-        body{
-            min-width: 1340px;
-        }
-
-        /* 헤더 영역 */
-        header{
-            width: 1280px; 
-            margin: 0 auto;
-            position: relative;
-            padding: 64px 0 42px;
-            /* 나중에 삭제할 속성 */
-            height: 200px;
-        }
-        #ham_menu{
-            position: absolute; top: 18px; left: -10px;
-        }
-        #ham_menu .btn-ham{
-            padding: 10px;
-            cursor: pointer;
-            background-color: transparent; border: none; outline: 0;
-        }
-        #ham_menu .btn-ham::after{
-            content: ''; display: block; background-image: url(../img/naver_icon.png);
-            background-size: 422px 405px;
-            background-position: -335px -284px;
-            width: 26px; height: 26px;
-            position: relative;
-        }
-        #ham_menu .btn-ham:hover::before{
-            content: ''; display: block; position: absolute;
-            top: 1px; left: 1px;
-            width: 44px; height: 44px;
-            background-color: #f5f7f8;
-            border-radius: 50%;
-        }
-        #box_search{
-            width: 706px; position: absolute;
-            left: 50%; transform: translate(-50%);
-            border: 1px solid #a3691b;
-            border-radius: 33px; top: 64px;
-            /* 나중에 삭제할 속성 */
-            background-color: #fff;
-        }
-        #box_search .box-logo{
-            float: left; width: 80px;
-        }
-        #box_search .box-logo .link-logo{
-            display: block; padding-left: 10px; margin-right: 12px;
-        }
-        #box_search .box-logo .link-logo>.img-link-logo{
-            width: 58px; height: 58px; display: block;
-        }
-        #box_search .box-search-input{
-            float: right; width: 623px;
-        }
-        #box_search .box-search-input .input-search{
-            padding: 17px 0; width: 480px; float: left;
-            height: 58px; border: 0; outline: 0;
-            box-sizing: border-box;
-            line-height: 24px;
-            position: relative;
-            font-weight: bold; font-size: 23px; color: #000;
-        }
-        #box_search .box-search-input .input-search::placeholder{
-            color: #e3e5e8;
-            font-size: 20px;
-            font-weight: 350;
-        }
-        #box_search .box-search-input .btn-search{
-            padding: 17px 27px 16px 10px; cursor: pointer;
-            position: absolute; top: 0; right: 0;
-            border: 0; outline: 0; background-color: transparent;
-        }
-        #box_search .box-search-input .btn-search .icon-search{
-            background-color: #a3691b; display: block;
-        }
-        #box_search .box-search-input .btn-search .icon-search::before{
-            background-image: url(../img/naver_icon.png);
-            background-size: 422px 405px;
-            background-position: -364px -106px;
-            width: 25px; height: 25px;
-            content: ''; display: block;
-        }
-        #box_search .box-btns{
-            position: absolute; top: 0; right: 61px; bottom: 0;
-            width: 56px;
-        }
-        #box_search .box-btns .btn-kbd{
-            padding: 21px 3px; cursor: pointer;
-            border: 0; outline: 0; background-color: transparent;
-        }
-        #box_search .box-btns .btn-kbd::before{
-            background-image: url(../img/naver_icon.png);
-            background-size: 422px 405px;
-            background-position: -50px -270px;
-            width: 24px; height: 16px;
-            content: ''; display: block;
-        }
-        #box_search .box-btns .btn-kbd:hover::before{
-            background-position: -270px -234px;
-        }
-        #box_search .box-btns .btn-autocomplete{
-            padding: 26px 6px; cursor: pointer; position: absolute; 
-            right: 1px; top: 0;
-            border: 0; outline: 0; background-color: transparent;
-        }
-        #box_search .box-btns .btn-autocomplete::before{
-            background-image: url(../img/naver_icon.png);
-            background-size: 422px 405px;
-            background-position: -412px -352px;
-            width: 10px; height: 6px;
-            content: ''; display: block;
-        }
-        .shortcut-area{
-            position: relative;
-            width: 676px;
-            margin: 72px auto 0;
-        }
-        .shortcut-area .shortcut-list .shortcut-item{
-            float: left;
-        }
-        .shortcut-list .shortcut-item+.shortcut-item{
-            margin-left: 4px;
-        }
-        .shortcut-list .link-service{
-            position: relative;
-            display: block;
-            width: 64px;
-        }
-        .shortcut-list .service-icon{
-            width: 48px; height: 48px; position: relative;
-            display: block; margin: 0 auto;
-        }
-        .shortcut-list .service-icon::before{
-            content: ''; display: block; position: absolute;
-            top: -2px; left: -3px;
-            background-image: url(../img/naver_icon.png);
-            background-size: 422px 405px;
-            background-position: 0px -128px;
-            width: 54px; height: 54px;
-        }
-        .shortcut-list .service-icon:hover::before{
-            filter: drop-shadow(1px 4px 1px rgb(236, 236, 236));
-        }
-        .shortcut-list .service-icon::after{
-            content: ''; display: block; position: absolute;
-            top: 0; bottom: 0; left: 0; right: 0;
-            margin: auto;
-        }
-        .shortcut-list .service-icon.type-mail::after{
-            background-image: url(../img/naver_icon.png);
-            background-size: 422px 405px;
-            background-position: -250px -90px;
-            width: 44px; height: 44px;
-        }
-        .shortcut-list .service-icon.type-cafe::after{
-            background-image: url(../img/naver_icon.png);
-            background-size: 422px 405px;
-            background-position: -250px -0px;
-            width: 44px; height: 44px;
-        }
-        .shortcut-list .service-icon.type-blog::after{
-            background-image: url(../img/naver_icon.png);
-            background-size: 422px 405px;
-            background-position: -201px -98px;
-            width: 44px; height: 44px;
-        }
-        .shortcut-list .service-icon.type-shop::after{
-            background-image: url(../img/naver_icon.png);
-            background-size: 422px 405px;
-            background-position: -90px -209px;
-            width: 44px; height: 44px;
-        }
-        .shortcut-list .service-icon.type-news::after{
-            background-image: url(../img/naver_icon.png);
-            background-size: 422px 405px;
-            background-position: 0px -209px;
-            width: 44px; height: 44px;
-        }
-        .shortcut-list .service-icon.type-stock::after{
-            background-image: url(../img/naver_icon.png);
-            background-size: 422px 405px;
-            background-position: -180px -209px;
-            width: 44px; height: 44px;
-        }
-        .shortcut-list .service-icon.type-realestate::after{
-            background-image: url(../img/naver_icon.png);
-            background-size: 422px 405px;
-            background-position: -45px -209px;
-            width: 44px; height: 44px;
-        }
-        .shortcut-list .service-icon.type-map::after{
-            background-image: url(../img/naver_icon.png);
-            background-size: 422px 405px;
-            background-position: -201px 0px;
-            width: 48px; height: 48px;
-        }
-        .shortcut-list .service-icon.type-webtoon::after{
-            background-image: url(../img/naver_icon.png);
-            background-size: 422px 405px;
-            background-position: -225px -209px;
-            width: 44px; height: 44px;
-        }
-        .shortcut-list .service-icon.type-more::after{
-            background-image: url(../img/naver_icon.png);
-            background-size: 422px 405px;
-            background-position: -250px -135px;
-            width: 44px; height: 44px;
-        }
-        .shortcut-list .service-name{
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            display: block;
-            font-size: 14px;
-            margin-top: 7px; line-height: 20px; text-align: center;
-        }
-        .pay-area{
-            position: absolute;
-            top: 18px;
-            right: 42px;
-        }
-        .pay-area .link-pay{
-            position: relative;
-            display: block;
-            padding: 10px 8px;
-        }
-        .notify-area{
-            position: absolute;
-            top: 18px;
-            right: -10px;
-            width: 46px;
-        }
-        .notify-area .btn-notify{
-            overflow: visible;
-            position: relative;
-            padding: 10px;
-            cursor: pointer;
-            background-color: transparent;
-            border: 0;
-        }
-        .pay-area .link-pay:hover::before{
-            content: '';
-            display: block;
-            position: absolute;
-            top: 1px;
-            left: 1px;
-            width: 44px;
-            height: 44px;
-            background-color: #f5f7f8;
-            border-radius: 50%;
-        }
-        .notify-area .btn-notify:hover::before{
-            content: '';
-            display: block;
-            position: absolute;
-            top: 1px;
-            left: 1px;
-            width: 44px;
-            height: 44px;
-            background-color: #f5f7f8;
-            border-radius: 50%;
-        }
-        .pay-area .link-pay::after{
-            content: '';
-            display: block;
-            background-image: url(../img/naver_icon.png);
-            background-size: 422px 405px;
-            background-position: -31px -316px;
-            width: 30px; height: 26px;
-            position: relative;
-        }
-        .notify-area .btn-notify::after{
-            content: '';
-            display: block;
-            background-image: url(../img/naver_icon.png);
-            background-size: 422px 405px;
-            background-position: -364px -27px;
-            width: 26px; height: 26px;
-            position: relative;
-        }
-        /* 컨텐츠 영역 */
-        #container{
-            width: 1280px;
-            margin: 0 auto;
-            /* 나중에 삭제할 속성 */
-            background-color: red;
-            height: 500px;
-        }
-
-        /* 푸터 영역 */
-        footer{
-            min-width: 1280px;
-            background-color: #f5f6f7;
-            /* 나중에 삭제할 속성 */
-            height: 300px;
-        }
-
-        /* 공통 */
-        ul, ol{
-            list-style: none;
-        }
-        li{
-            display: list-item;
-            text-align: -webkit-match-parent;
-        }
-        fieldset{
-            border: 0;
-        }
-        .blind{
-            position: absolute; width: 1px; height: 1px; margin: -1px;
-            overflow: hidden;
-        }
-        .clearfix::after{
-            content: ''; clear: both; display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="naver.css">
 </head>
 <body>
     <header>
@@ -337,7 +17,11 @@
         <div id="box_search" class="clearfix">
             <div class="box-logo">
                 <a href="#" class="link-logo">
-                    <img src="../img/naver_logo.png" alt="로고" class="img-link-logo">
+                    <span class="ico_n_logo_svg">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.273 12.845 7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727v12.845z"></path>
+                        </svg>
+                    </span>
                 </a>
             </div>
             <form class="box-search-input">
@@ -437,7 +121,416 @@
         </div>
         <!-- 검색창 끝 -->
     </header>
-    <div id="container"></div>
+    <div id="container">
+        <div class="box-left">
+            <div class="box-banner" id="box_left1">
+                <iframe src="" frameborder="0"></iframe>
+            </div>
+            <div class="content-area">
+                <div class="content-header">
+                    <div class="head-tab">
+                        <ul class="tab-list">
+                            <li class="tab-item">
+                                <span class="module-tab type-news">
+                                    <a href="#" class="tab-text">뉴스스탠드</a><a href="#" class="tab-text">언론사편집</a>
+                                </span>
+                            </li>
+                            <li class="tab-item">
+                                <a href="#" class="module-tab">엔터</a>
+                            </li>
+                            <li class="tab-item">
+                                <a href="#" class="module-tab">스포츠</a>
+                            </li>
+                            <li class="tab-item">
+                                <a href="#" class="module-tab">경제</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content-header-sub">
+                    <a href="#" class="btn-more">전체언론사<i class="ico-triangle"></i></a>
+                    <div class="sub-news">
+                        <a href="#" class="news-media">연합뉴스</a>
+                    </div>
+                    <div class="sub-home">
+                        <a href="#" class="link-home sub">뉴스스탠드</a><a href="#" class="link-home">뉴스홈</a>
+                    </div>
+                </div>
+                <div class="media-area">
+                    <div class="media-subscription">
+                        <div class="subscription-frame">
+                            <i class="line right1"></i>
+                            <i class="line right2"></i>
+                            <i class="line right3"></i>
+                            <i class="line bottom1"></i>
+                            <i class="line bottom2"></i>
+                            <i class="line bottom3"></i>
+                            <i class="line bottom4"></i>
+                            <i class="line bottom5"></i>
+                        </div>
+                        <div class="subscription-group">
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/01.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/02.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/03.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/04.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/05.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/06.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/07.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/08.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/09.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/10.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/11.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/12.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/13.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/14.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/15.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/16.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/17.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/18.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/19.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/20.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/21.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/22.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/23.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/24.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/25.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                            <div class="subscription-box">
+                                <a href="#" class="news-thumb">
+                                    <img src="../img/26.png" alt="" height="20" class="news-logo">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-paging">
+                    <div class="content-view">
+                        <button type="button" class="btn-view-list"></button><button type="button" class="btn-view-thumb"></button>
+                    </div><button type="button" class="btn-prev"><span class="blind">이전 페이지</span></button><div class="content-page">
+                        <span class="module-text">
+                            <span class="module-point">언론사</span>
+                            더보기
+                        </span>
+                        <span class="current">1<spanc class="blind">페이지</span></span><span class="module-total"><span class="blind">전체</span>/4</span>
+                    </div><button type="button" class="btn-next"><span class="blind">다음페이지</span></button>
+                </div>
+            </div>
+            <div class="content-area">
+                <div class="content-header type-shopping"></div>
+                <div class="container">
+                    <div class="menu-content-header">
+                        <div class="menu-header-tab">
+                            <ul class="menu-tab-list">
+                                <li class="menu-tab-item">
+                                    <a href="#" class="menu-tab">쇼핑</a>
+                                </li>
+                                <li class="menu-tab-item">
+                                    <a href="#" class="menu-tab">맨즈</a>
+                                </li>
+                                <li class="menu-tab-item">
+                                    <a href="#" class="menu-tab">원쁠딜</a>
+                                </li>
+                                <li class="menu-tab-item">
+                                    <a href="#" class="menu-tab">쇼핑라이브</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="todaypick-header-sub-wrap">
+                        <div class="todaypick-header-sub">
+                            <span class="todaypick-title">오늘의 혜택</span>
+                            <a href="#" class="todaypick-link-mall">
+                                <span class="todaypick-mall-image">
+                                    <img height="13" src="https://s.pstatic.net/shopping.phinf/20230519_23/1c66767a-34e6-4c61-9e25-1ecc82ee1184.jpg" alt="">
+                                </span>
+                                <span class="todaypick-desc">
+                                    여름맞이 패션뷰티 Best~
+                                    <em class="todaypick-type-color">최대 70%+썸머특가</em>
+                                    혜택!
+                                </span>
+                            </a>
+                        </div>
+                        <div class="todaypick-header-sub-pagination">
+                            <div class="todaypick-content-page">
+                                <span class="current">1</span>
+                                <span class="todaypick-total">/18</span>
+                            </div><button type="button" class="todaypick-btn-prev"><i class="todaypick-ico-arrow-prev"></i></button><button type="button" class="todaypick-btn-next"><i class="todaypick-ico-arrow-next"></i></button>
+                        </div>
+                    </div>
+                    <div class="commerce-area">
+                        <div class="commerce-four">
+                            <ul class="four-list">
+                                <li class="four-item">
+                                    <div class="four-area">
+                                        <div class="four-box">
+                                            <div class="four-mw">
+                                                <a href="#" class="link-four">
+                                                    <span class="content-image" style="width: 115px; height: 115px;">
+                                                        <img src="https://s.pstatic.net/shopping.phinf/20230714_7/01c82947-e804-4e6c-9db0-0bcb28b50063.jpg?type=f500" width="115" height="115" alt="녹물세수 찝집? 피부를 위한 선택">
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <a href="#" class="four-tw">
+                                                <div class="four-tt">녹물세수 찝찝?</div>
+                                                <div class="four-tt">피부를 위한 선택</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="four-item">
+                                    <div class="four-area">
+                                        <div class="four-box">
+                                            <div class="four-mw">
+                                                <a href="#" class="link-four">
+                                                    <span class="content-image" style="width: 115px; height: 115px;">
+                                                        <img src="https://s.pstatic.net/shopping.phinf/20230704_17/af7962f5-6f19-4f49-83ca-6c0b5de8ed86.jpg?type=f500" width="115" height="115" alt="에어컨 필요없지? 여름이블cool세일">
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <a href="#" class="four-tw">
+                                                <div class="four-tt">에어컨 필요없지?</div>
+                                                <div class="four-tt">여름이불cool세일</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="four-item">
+                                    <div class="four-area">
+                                        <div class="four-box">
+                                            <div class="four-mw">
+                                                <a href="#" class="link-four">
+                                                    <span class="content-image" style="width: 115px; height: 115px;">
+                                                        <img src="https://s.pstatic.net/shopping.phinf/20230717_3/46f3a9cd-6423-44ec-9004-c38f74e3c5d3.jpg?type=f500" width="115" height="115" alt="녹물세수 찝집? 피부를 위한 선택">
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <a href="#" class="four-tw">
+                                                <div class="four-tt">고급SET 최대 90%</div>
+                                                <div class="four-tt">어딜가도~극찬!</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="four-item">
+                                    <div class="four-area">
+                                        <div class="four-box">
+                                            <div class="four-mw">
+                                                <a href="#" class="link-four">
+                                                    <span class="content-image" style="width: 115px; height: 115px;">
+                                                        <img src="https://s.pstatic.net/shopping.phinf/20230717_12/c903fbeb-691b-46e1-9f1a-4619f6051ff7.jpg?type=f500" width="115" height="115" alt="녹물세수 찝집? 피부를 위한 선택">
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <a href="#" class="four-tw">
+                                                <div class="four-tt">호캉스 준비완료~</div>
+                                                <div class="four-tt">깔끔정리 파우치</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="four-item">
+                                    <div class="four-area">
+                                        <div class="four-box">
+                                            <div class="four-mw">
+                                                <a href="#" class="link-four">
+                                                    <span class="content-image" style="width: 115px; height: 115px;">
+                                                        <img src="https://s.pstatic.net/shopping.phinf/20230619_10/8de94fa3-7843-4a6d-9b38-39d5106ccf3b.jpg?type=f500" width="115" height="115" alt="녹물세수 찝집? 피부를 위한 선택">
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <a href="#" class="four-tw">
+                                                <div class="four-tt">특별 타임세일 중</div>
+                                                <div class="four-tt">트래킹운동화 1+1</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="four-item">
+                                    <div class="four-area">
+                                        <div class="four-box">
+                                            <div class="four-mw">
+                                                <a href="#" class="link-four">
+                                                    <span class="content-image" style="width: 115px; height: 115px;">
+                                                        <img src="https://s.pstatic.net/shopping.phinf/20230713_14/39cd3be4-6368-4441-b47a-56db1cf2a51a.jpg?type=f500" width="115" height="115" alt="녹물세수 찝집? 피부를 위한 선택">
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <a href="#" class="four-tw">
+                                                <div class="four-tt">전상품 SALE</div>
+                                                <div class="four-tt">여름내내 예쁘게</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="four-item">
+                                    <div class="four-area">
+                                        <div class="four-box">
+                                            <div class="four-mw">
+                                                <a href="#" class="link-four">
+                                                    <span class="content-image" style="width: 115px; height: 115px;">
+                                                        <img src="https://s.pstatic.net/shopping.phinf/20230712_11/763c2346-5399-4337-a2d7-815d4ffb18a7.jpg?type=f500" width="115" height="115" alt="녹물세수 찝집? 피부를 위한 선택">
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <a href="#" class="four-tw">
+                                                <div class="four-tt">입는순간 화사해~</div>
+                                                <div class="four-tt">여름 BEST 원피스</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="four-item">
+                                    <div class="four-area">
+                                        <div class="four-box">
+                                            <div class="four-mw">
+                                                <a href="#" class="link-four">
+                                                    <span class="content-image" style="width: 115px; height: 115px;">
+                                                        <img src="https://s.pstatic.net/shopping.phinf/20230601_7/b6148184-1b2f-448c-8253-fffaa9eb432d.jpg?type=f500" width="115" height="115" alt="녹물세수 찝집? 피부를 위한 선택">
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <a href="#" class="four-tw">
+                                                <div class="four-tt">한여름까지 쭉~!</div>
+                                                <div class="four-tt">만원대로 코디~!</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="commerce-view">
+                            <div class="group-mall"></div>
+                            <div class="quicklink-menu-area"></div>
+                            <a href="#" class="link-banner"></a>
+                        </div>
+                    </div>
+                    <div class="content-paging"><button type="button" class="btn-prev"><span class="blind">이전 페이지</span></button><div class="content-page">
+                            <span class="module-text">
+                                <span class="module-point2">쇼핑아이템</span>
+                                더보기
+                            </span>
+                            <span class="current">1<spanc class="blind">페이지</span></span><span class="module-total"><span class="blind">전체</span>/18</span>
+                        </div><button type="button" class="btn-next"><span class="blind">다음페이지</span></button>
+                        <span class="tag-ad">AD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box-right">
+            <div class="box-login">
+                <p class="text-login">네이버를 더 안전하고 편리하게 이용하세요.</p>
+                <a href="#" class="link-login">
+                    <i class="naver-logo">
+                        <span class="blind">NAVER</span>
+                    </i>로그인
+                </a>
+                <div class="login-more">
+                    <a href="#" class="link-more">아이디 찾기</a>
+                    <a href="#" class="link-more2">비밀번호 찾기</a>
+                    <a href="#" class="link-more2">회원가입</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <footer></footer>
 </body>
 </html>
