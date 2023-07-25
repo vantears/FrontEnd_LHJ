@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 500px;
+            height: 500px;
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: black;
+        }
+        .box{
+            width: calc((100% - 10px) / 2);
+            height: 100%;
+            background-color: yellow;
+            float: left;
+        }
+        .box2{
+            background-color: transparent;
+            float: right;
+        }
+        .inner-box{
+            height: calc((100% - 10px) / 2);
+        }
+        .top{
+            background-color: blue;
+        }
+        .bottom{
+            margin-top: 10px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box box1">1</div>
+        <div class="box box2">
+            <div class="inner-box top">3</div>
+            <div class="inner-box bottom">4</div>
+        </div>
+    </div>
+</body>
+</html>
