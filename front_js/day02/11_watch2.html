@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            position: absolute;
+            left: 50%; transform: translateX(-50%);
+        }
+        .btn-container{
+            display: flex;
+        }
+        #box{
+            width: 400px; border: solid 3px red;
+            text-align: center; line-height: 50px; height: 50px;
+            font-size: 30px; font-weight: bold;
+        }
+        .btn{
+            margin: 10px auto;
+            font-size: 20px;
+            background-color: transparent;
+            border: 1px solid grey;
+        }
+        .btn:hover{
+            background-color: skyblue;
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="box"></div>
+        <div class="btn-container">
+            <button class="btn start">시작</button>
+            <button class="btn stop">중지</button>
+        </div>
+    </div>
+    <script>
+        box.innerText = '00:00:00'
+        let h = 0, m = 0, s = 0;
+        let intervalId = null;
+        let btnStart = document.querySelector('.start');
+        let btnStop = document.querySelector('.stop');
+        btnStart.addEventListener('click', ()=>{
+            if(intervalId == null){
+                intervalId = start();
+            }
+        });
+        btnStop.addEventListener('click', ()=>{
+            intervalId = stop();
+        });
+        function start(){
+            return setInterval(function(){
+                s++;
+                if(s == 60){
+                    m++;
+                    s = 0;
+                }
+                if(m == 60){
+                    h++;
+                    m = 0;
+                }
+                box.innerText = getTime(h, m, s);
+        }, 1000);}
+
+        function getTime(h, m, s){
+            return ''+fillZero(h)+ ':' + fillZero(m) +':' + fillZero(s);
+        }
+        function fillZero(num){   
+            return num < 10 ? '0'+num : num;
+        }
+        
+        function stop(){
+            clearInterval(intervalId);
+        }
+        
+    </script>
+</body>
+</html>
